@@ -1,0 +1,11 @@
+# cookbook
+openai-cookbook/
+
+# quickstart
+openai-quickstart-python/
+
+# file code
+chatgpt.ipynb
+
+# env
+.env
