@@ -5,6 +5,7 @@ from dotenv import load_dotenv # for load env
 import os
 from gtts import gTTS # for text to speech
 import pygame # for play file mp3
+import speech_recognition as sr # for speech to text
 
 # config
 FOLDER_AUDIO = './texttospeech'
@@ -25,3 +26,10 @@ def text_to_speech(_text, path_folder = FOLDER_AUDIO, lang = 'vi'):
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy():
         pygame.time.wait(200)
+
+def speech_to_text(timeout = 10, lang = "vi-VN"):
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        audio = r.listen(source, timeout= timeout)
+    text_ = r.recognize_google(audio, language= lang)
+    return text_
