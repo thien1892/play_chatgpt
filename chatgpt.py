@@ -16,7 +16,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def text_to_speech(_text, path_folder = FOLDER_AUDIO, lang = 'vi'):
     tts = gTTS(text=_text, lang= lang)
-    file_audio = f'{hash(_text)}.mp3'
+    file_audio = f'{hash(_text + lang)}.mp3'
     path_file_audio = os.path.join(path_folder, file_audio)
     if not os.path.exists(path_file_audio):
         tts.save(path_file_audio)
