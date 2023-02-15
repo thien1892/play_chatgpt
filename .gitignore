@@ -12,3 +12,4 @@ texttospeech/
 
 # env
 .env
+venv/
